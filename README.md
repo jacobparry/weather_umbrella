@@ -31,29 +31,31 @@ I assume you already have the following installed:
 
     - Install:
 
-````
 - take a moment to
-    - [read and learn more about the tool](https://github.com/asdf-vm/asdf)
 
-     ```sh
-     asdf plugin-add erlang
-     asdf plugin-add elixir
-     ```
+  - [read and learn more about the tool](https://github.com/asdf-vm/asdf)
 
-    - in the terminal, navigate to the repo directory.
+    ```sh
+    asdf plugin-add erlang
+    asdf plugin-add elixir
+    ```
 
-    - Install via asdf. This will install the versions in found in the `.tool-versions` file.
+  - in the terminal, navigate to the repo directory.
+
+  - Install via asdf. This will install the versions in found in the `.tool-versions` file.
+
     ```sh
     asdf install
     ```
 
-    - Set the versions of erlang and elixir to the current directory. Can set these globally if you want, but may conflict with a brew installed elixir
+  - Set the versions of erlang and elixir to the current directory. Can set these globally if you want, but may conflict with a brew installed elixir
+
     ```sh
     asdf local erlang 24.2
     asdf local elixir 1.13.2-otp-24
     ```
-    - Run `asdf current` to confirm that the correct versions are set for the repo.
-````
+
+  - Run `asdf current` to confirm that the correct versions are set for the repo.
 
 - Once everything is set up and running:
 

@@ -32,8 +32,8 @@ I assume you already have the following installed:
     - Install:
 
 ````
-4\.  take a moment to
-     [read and learn more about the tool](https://github.com/asdf-vm/asdf)
+- take a moment to
+    - [read and learn more about the tool](https://github.com/asdf-vm/asdf)
 
      ```sh
      asdf plugin-add erlang
@@ -55,9 +55,9 @@ I assume you already have the following installed:
     - Run `asdf current` to confirm that the correct versions are set for the repo.
 ````
 
-- Once everything is set up and cloded:
+- Once everything is set up and running:
 
-  - Run `mix test`. The tests are all passing for me.
+  - Run `mix test`. The tests are all passing for me, as of right now. They'll probably fail for you because I noticed the values change, and I'm testing against the live API here. I know I know, shame on me. I should write the tests to use the mocks, but which I did do. It is split between live and mocked.
   - Inspect the logic, and tests that wrote
 
     - Main logic found. There are other files, but these contain most of the meat.
@@ -123,3 +123,5 @@ I assume you already have the following installed:
       - Set up a GenServer to poll MetaWeather about once a minute or so. I noticed in their docs that they said please don't hit them more than once a minute. I figured I'd be nice and rate limit myself.
       - Differentiate in the logic for when I need to query the db vs MetaWeather.
       - Flesh out Absinthe and GraphQL to allow more robust querying.
+
+      - There is a bug in one of the genserver resolvers. For some reason, it is loading double data.

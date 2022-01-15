@@ -12,8 +12,20 @@ defmodule Api.Schema do
       end)
     end
 
-    field(:tri_city_data, list_of(:city_data)) do
-      resolve(&Api.Resolvers.CityResolver.get_city_data/3)
+    field(:tri_city_data_sequentially, list_of(:city_data)) do
+      resolve(&Api.Resolvers.CityResolver.get_city_data_sequentially/3)
+    end
+
+    field(:tri_city_data_async, list_of(:city_data)) do
+      resolve(&Api.Resolvers.CityResolver.get_city_data_async/3)
+    end
+
+    field(:tri_city_data_genserver, list_of(:city_data)) do
+      resolve(&Api.Resolvers.CityResolver.get_city_data_genserver/3)
+    end
+
+    field(:tri_city_data_genserver_named, list_of(:city_data)) do
+      resolve(&Api.Resolvers.CityResolver.get_city_data_genserver_named/3)
     end
   end
 

@@ -12,6 +12,9 @@ defmodule Weather.Application do
       # {Weather.Worker, arg}
     ]
 
+    {:ok, pid} = Weather.WeatherSaver.start_link()
+    Process.register(pid, :saver)
+
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Weather.Supervisor]

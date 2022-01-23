@@ -10,8 +10,8 @@ defmodule Weather.WeatherSaver do
     GenServer.start_link(__MODULE__, args, opts)
   end
 
-  def save_weather(woeid, server) do
-    GenServer.call(server, {:find_weather, woeid}, 20000)
+  def save_weather(woeid, date, server) do
+    GenServer.call(server, {:find_weather, woeid, date}, 20000)
   end
 
   def get_weather(server) do
@@ -33,8 +33,8 @@ defmodule Weather.WeatherSaver do
     {:ok, loaded_state}
   end
 
-  def handle_call({:find_weather, woeid}, _from, state) do
-    new_state = load_city(state, woeid)
+  def handle_call({:find_weather, woeid, date}, _from, state) do
+    new_state = load_city(state, woeid, date)
 
     {:reply, "Bam", new_state}
   end
@@ -49,6 +49,16 @@ defmodule Weather.WeatherSaver do
 
     city_data =
       Weather.Forecast.forecast_day(woeid, DateTime.utc_now(), :max_temp)
+      |> format_result(city_name)
+
+    _new_state = %{state | cities: [city_data | state.cities]}
+  end
+
+  defp load_city(state, woeid, date) do
+    {:ok, %Tesla.Env{body: %{"title" => city_name}}} = Weather.Clients.MetaWeather.Location.find_by_id(woeid)
+
+    city_data =
+      Weather.Forecast.forecast_day(woeid, date, :max_temp)
       |> format_result(city_name)
 
     _new_state = %{state | cities: [city_data | state.cities]}

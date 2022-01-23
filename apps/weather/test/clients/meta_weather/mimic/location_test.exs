@@ -1,5 +1,5 @@
 defmodule Weather.Clients.MetaWeather.Mimic.LocationTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: true, async: true
   use Mimic
 
   alias Weather.Clients.MetaWeather.Location

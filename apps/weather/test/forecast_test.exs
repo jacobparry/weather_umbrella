@@ -3,7 +3,7 @@ defmodule Weather.ForecastTest do
   Tests for Weather.Forecast
   """
 
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest Weather.Forecast
 
   alias Weather.Clients.MetaWeather.Location

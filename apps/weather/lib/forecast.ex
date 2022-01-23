@@ -59,7 +59,7 @@ defmodule Weather.Forecast do
     end)
   end
 
-  def perform_average_calculation(type, temp, acc) do
+  defp perform_average_calculation(type, temp, acc) do
     %{sum: sum, count: count, average: _average} = acc
 
     new_sum =

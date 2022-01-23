@@ -1,5 +1,5 @@
 defmodule Weather.Clients.MetaWeather.LocationTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest Weather.Clients.MetaWeather.Location
 
   alias Weather.Clients.MetaWeather.Location

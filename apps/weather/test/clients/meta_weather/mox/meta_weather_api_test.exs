@@ -1,5 +1,5 @@
 defmodule Weather.Clients.MetaWeather.Mox.MetaWeatherAPITest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: true, async: true
 
   import Mox
 

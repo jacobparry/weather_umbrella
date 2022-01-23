@@ -1,5 +1,5 @@
 defmodule WeatherTest do
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   doctest Weather
 
   test "greets the world" do
